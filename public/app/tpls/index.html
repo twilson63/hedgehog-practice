@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="span5">
+    <h4>Browse</h4>
+    <!-- insert search template here-->
+    <form class="form-search">
+      <div class="input-append">
+        <input class="search-query" type="text" ng-model="query">
+        <button class="btn" ng-click="search()">
+          <i class="icon-bolt"></i>
+        </button>
+      </div>
+    </form>
+    <ul class="nav nav-stacked">
+      <!-- insert select template here-->
+      <li ng-repeat="hog in hogs" >
+        <a href="#" ng-click="select(hog)">
+        <div class="media">
+          <div class="chevron pull-right">
+            <i class="icon-chevron-right"></i>
+          </div>
+          <div class="pull-left">
+            <img class="media-object" style="" ng-src="{{hog.tbUrl}}" />
+          </div>
+          <div class="media-body">
+            <h4><div ng-bind-html-unsafe="hog.title"></div></h4>
+          </div>
+        </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="span6">
+    <div class="row">
+      <img ng-src="{{selected}}"></img>
+    </div>
+    <div class="row">
+    <button 
+      style="margin-top: 20px;"
+      class="btn pull-right" 
+      ng-show="selected"
+      ng-click="submit()">Submit</button>
+    </div>
+  </div>
+</div>
